@@ -974,6 +974,462 @@ export const basicQuestions: Question[] = [
     },
     answer: 'D',
     explanation: `Inbound Traffic (lưu lượng chiều vào) là các gói tin có nguồn gốc từ bên ngoài (Internet hoặc các mạng khác) gửi tới hệ thống hoặc mạng nội bộ của bạn. Ngược lại, Outbound Traffic (lưu lượng chiều ra) là lưu lượng do thiết bị nội bộ khởi tạo gửi ra thế giới bên ngoài. Tường lửa thường kiểm soát rất chặt chẽ chiều Inbound để ngăn kẻ xâm nhập.`
+  },
+  {
+    id: 'basic-osi-model-069',
+    level: 'basic',
+    topic: 'osi-model',
+    question: `Tại mô hình OSI, tầng nào chịu trách nhiệm kiểm soát lỗi phần cứng, đóng gói dữ liệu thành các khung (frame) và sử dụng địa chỉ MAC?`,
+    options: {
+      A: `Tầng Data Link (Liên kết dữ liệu)`,
+      B: `Tầng Network (Mạng)`,
+      C: `Tầng Transport (Giao vận)`,
+      D: `Tầng Physical (Vật lý)`
+    },
+    answer: 'A',
+    explanation: `Tầng Data Link (Tầng 2) đóng gói dữ liệu thành các Frame và sử dụng địa chỉ MAC để giao tiếp trong cùng một mạng LAN. Tầng này cũng đảm nhiệm việc kiểm tra lỗi thông qua cơ chế FCS (Frame Check Sequence). Các tầng khác có chức năng định tuyến, giao vận hoặc truyền tín hiệu vật lý.`,
+    tip: `MAC và Frame luôn gắn liền với Tầng 2 - Data Link.`
+  },
+  {
+    id: 'basic-osi-model-070',
+    level: 'basic',
+    topic: 'osi-model',
+    question: `Trong mô hình OSI, thuật ngữ PDU (Protocol Data Unit) ở tầng Transport được gọi là gì?`,
+    options: {
+      A: `Frame`,
+      B: `Segment`,
+      C: `Packet`,
+      D: `Bit`
+    },
+    answer: 'B',
+    explanation: `Ở tầng Transport, dữ liệu được chia nhỏ thành các đơn vị gọi là Segment (nếu dùng TCP) hoặc Datagram (nếu dùng UDP). Frame thuộc về tầng Data Link, Packet thuộc về tầng Network, và Bit thuộc về tầng Physical.`
+  },
+  {
+    id: 'basic-osi-model-071',
+    level: 'basic',
+    topic: 'osi-model',
+    question: `Các giao thức như HTTP, FTP, và SMTP hoạt động tại tầng nào của mô hình OSI?`,
+    options: {
+      A: `Tầng Session (Phiên)`,
+      B: `Tầng Presentation (Trình diễn)`,
+      C: `Tầng Application (Ứng dụng)`,
+      D: `Tầng Network (Mạng)`
+    },
+    answer: 'C',
+    explanation: `Tầng Application (Tầng 7) là nơi cung cấp các giao thức mạng trực tiếp phục vụ cho ứng dụng của người dùng, như duyệt web (HTTP), truyền file (FTP), và gửi email (SMTP). Các tầng dưới tập trung vào việc thiết lập phiên, mã hóa dữ liệu hoặc định tuyến.`,
+    tip: `Application là ứng dụng, nơi người dùng tương tác trực tiếp với dịch vụ mạng.`
+  },
+  {
+    id: 'basic-osi-model-072',
+    level: 'basic',
+    topic: 'osi-model',
+    question: `Cơ chế Flow Control (kiểm soát luồng) ở tầng Transport trong mô hình OSI nhằm mục đích gì?`,
+    options: {
+      A: `Mã hóa dữ liệu trước khi truyền lên mạng`,
+      B: `Xác định đường đi ngắn nhất cho gói tin`,
+      C: `Phân giải tên miền thành địa chỉ IP`,
+      D: `Ngăn chặn việc bên gửi truyền dữ liệu quá nhanh làm tràn bộ đệm của bên nhận`
+    },
+    answer: 'D',
+    explanation: `Flow Control (kiểm soát luồng) là cơ chế điều tiết tốc độ truyền dữ liệu giữa hai thiết bị. Điều này đảm bảo bên gửi không gửi dữ liệu với tốc độ vượt quá khả năng xử lý của bên nhận, ngăn ngừa mất mát dữ liệu do tràn bộ đệm.`
+  },
+  {
+    id: 'basic-tcp-ip-model-073',
+    level: 'basic',
+    topic: 'tcp-ip-model',
+    question: `Khi so sánh mô hình OSI và TCP/IP, tầng Application của mô hình TCP/IP tương ứng với những tầng nào của mô hình OSI?`,
+    options: {
+      A: `Tầng Network, Transport và Session`,
+      B: `Tầng Session, Presentation và Application`,
+      C: `Chỉ tương ứng với tầng Application`,
+      D: `Tầng Data Link và Network`
+    },
+    answer: 'B',
+    explanation: `Tầng Application của mô hình TCP/IP gộp chức năng của ba tầng trên cùng trong mô hình OSI, bao gồm: Session (thiết lập phiên), Presentation (định dạng dữ liệu) và Application (giao tiếp ứng dụng). Điều này giúp mô hình TCP/IP tinh gọn và thực tế hơn.`
+  },
+  {
+    id: 'basic-tcp-ip-model-074',
+    level: 'basic',
+    topic: 'tcp-ip-model',
+    question: `Trong mô hình TCP/IP, giao thức ARP (Address Resolution Protocol) thường được xếp vào tầng nào?`,
+    options: {
+      A: `Tầng Application`,
+      B: `Tầng Transport`,
+      C: `Tầng Internet (hoặc Network Access tùy cách phân loại, nhưng chủ yếu hoạt động giữa lớp 2 và 3)`,
+      D: `Tầng Transport và Application`
+    },
+    answer: 'C',
+    explanation: `ARP hoạt động như một giao thức trung gian giúp ánh xạ địa chỉ IP (tầng Internet) sang địa chỉ MAC (tầng Network Access). Do đó, nó thường được xếp ở tầng Internet hoặc nằm giữa hai tầng này. Các đáp án khác sai hoàn toàn chức năng của ARP.`,
+    tip: `ARP dịch IP (L3) sang MAC (L2), nên nó nằm ở biên giới giữa hai tầng này.`
+  },
+  {
+    id: 'basic-tcp-ip-model-075',
+    level: 'basic',
+    topic: 'tcp-ip-model',
+    question: `Vai trò của số hiệu cổng (Port Number) tại tầng Transport trong mô hình TCP/IP là gì?`,
+    options: {
+      A: `Xác định địa chỉ vật lý của thiết bị trên mạng`,
+      B: `Định tuyến gói tin đi qua các mạng khác nhau`,
+      C: `Kiểm tra tính toàn vẹn của địa chỉ IP`,
+      D: `Phân biệt và định tuyến dữ liệu đến đúng ứng dụng hoặc tiến trình (Multiplexing)`
+    },
+    answer: 'D',
+    explanation: `Tại tầng Transport, số Port kết hợp với địa chỉ IP (tạo thành Socket) giúp phân biệt các luồng dữ liệu của nhiều ứng dụng khác nhau chạy trên cùng một máy tính. Nhờ đó, dữ liệu web (Port 80) không bị lẫn với dữ liệu email (Port 25).`
+  },
+  {
+    id: 'basic-tcp-ip-model-076',
+    level: 'basic',
+    topic: 'tcp-ip-model',
+    question: `Một trong những ưu điểm chính của mô hình TCP/IP so với mô hình OSI trong thực tế là gì?`,
+    options: {
+      A: `TCP/IP mang tính thực tiễn cao hơn và là nền tảng của mạng Internet hiện nay`,
+      B: `TCP/IP phân chia chi tiết làm 7 tầng rõ ràng hơn OSI`,
+      C: `TCP/IP không hỗ trợ định tuyến gói tin nên truyền dữ liệu nhanh hơn`,
+      D: `TCP/IP chỉ được sử dụng cho các mạng LAN nội bộ`
+    },
+    answer: 'A',
+    explanation: `Mô hình TCP/IP ra đời trước, được xây dựng dựa trên các giao thức thực tế đang hoạt động, do đó nó trở thành tiêu chuẩn cốt lõi của Internet. OSI mang tính lý thuyết, chuẩn hóa cao hơn với 7 tầng nhưng phức tạp hơn so với 4 tầng của TCP/IP.`
+  },
+  {
+    id: 'basic-network-devices-077',
+    level: 'basic',
+    topic: 'network-devices',
+    question: `Trong mạng máy tính, thiết bị Gateway có chức năng chính yếu là gì?`,
+    options: {
+      A: `Khuếch đại tín hiệu điện trên đường cáp mạng`,
+      B: `Cấp phát địa chỉ IP tự động cho máy tính`,
+      C: `Kết nối và chuyển đổi giao thức giữa hai mạng có kiến trúc khác nhau`,
+      D: `Chặn mọi truy cập từ Internet vào mạng nội bộ`
+    },
+    answer: 'C',
+    explanation: `Gateway (cổng nối) là thiết bị hoặc phần mềm hoạt động ở các tầng cao hơn của mô hình OSI, làm nhiệm vụ phiên dịch giao thức và kết nối các mạng không tương thích với nhau. Khuếch đại là của Repeater, cấp IP là DHCP, chặn truy cập là Firewall.`,
+    tip: `Gateway = Cửa ngõ, giúp các mạng "nói" ngôn ngữ khác nhau có thể giao tiếp.`
+  },
+  {
+    id: 'basic-network-devices-078',
+    level: 'basic',
+    topic: 'network-devices',
+    question: `Điểm khác biệt cơ bản giữa Layer 3 Switch và Switch thông thường (Layer 2) là gì?`,
+    options: {
+      A: `Layer 3 Switch chỉ xử lý địa chỉ MAC, không biết đến địa chỉ IP`,
+      B: `Layer 3 Switch là thiết bị phần mềm không có phần cứng`,
+      C: `Layer 3 Switch không có khả năng chia VLAN`,
+      D: `Layer 3 Switch có thêm khả năng định tuyến (routing) dựa trên địa chỉ IP giống như Router`
+    },
+    answer: 'D',
+    explanation: `Switch thông thường chỉ hoạt động ở Tầng 2, chuyển tiếp dữ liệu dựa vào MAC address. Layer 3 Switch tích hợp thêm phần cứng để thực hiện định tuyến IP (Layer 3) giữa các VLAN với tốc độ rất nhanh, kết hợp ưu điểm của cả Switch và Router.`
+  },
+  {
+    id: 'basic-network-devices-079',
+    level: 'basic',
+    topic: 'network-devices',
+    question: `Card mạng (Network Interface Card - NIC) đóng vai trò gì trong máy tính?`,
+    options: {
+      A: `Là phần cứng cung cấp kết nối vật lý và chứa địa chỉ MAC để giao tiếp trên mạng`,
+      B: `Định tuyến gói tin giữa các mạng quốc gia`,
+      C: `Tăng tốc độ xử lý đồ họa cho máy tính`,
+      D: `Thay thế hoàn toàn chức năng của một Router`
+    },
+    answer: 'A',
+    explanation: `NIC là giao tiếp phần cứng giúp máy tính kết nối vào môi trường truyền dẫn (cáp hoặc không dây). Mỗi NIC được nhà sản xuất gán một địa chỉ vật lý (MAC) duy nhất để thiết bị có thể nhận và gửi khung dữ liệu trên mạng LAN.`
+  },
+  {
+    id: 'basic-network-devices-080',
+    level: 'basic',
+    topic: 'network-devices',
+    question: `Công nghệ PoE (Power over Ethernet) được sử dụng phổ biến với mục đích gì?`,
+    options: {
+      A: `Tăng gấp đôi tốc độ truyền dữ liệu của cáp quang`,
+      B: `Truyền đồng thời cả dữ liệu và nguồn điện trên cùng một sợi cáp mạng Ethernet`,
+      C: `Chuyển đổi tín hiệu analog sang digital`,
+      D: `Lọc các gói tin độc hại bằng nguồn điện cao thế`
+    },
+    answer: 'B',
+    explanation: `PoE cho phép cáp mạng Ethernet mang theo dòng điện để cấp nguồn cho các thiết bị như IP Camera, Access Point, hay điện thoại VoIP. Việc này giúp giảm chi phí đi dây điện riêng lẻ đến từng thiết bị.`
+  },
+  {
+    id: 'basic-ip-addressing-081',
+    level: 'basic',
+    topic: 'ip-addressing',
+    question: `Khi một máy tính Windows không thể liên lạc với máy chủ DHCP, nó sẽ tự động gán một địa chỉ IP thuộc dải 169.254.x.x. Tính năng này gọi là gì?`,
+    options: {
+      A: `NAT (Network Address Translation)`,
+      B: `MAC Filtering`,
+      C: `Loopback Testing`,
+      D: `APIPA (Automatic Private IP Addressing)`
+    },
+    answer: 'D',
+    explanation: `APIPA là tính năng tự động của hệ điều hành. Khi thiết bị cấu hình nhận IP động nhưng không tìm thấy máy chủ DHCP, nó tự gán IP 169.254.x.x để có thể tạm thời giao tiếp với các máy khác trong cùng mạng LAN đang gặp tình trạng tương tự.`,
+    tip: `Thấy IP 169.254.x.x tức là mạng đang lỗi DHCP.`
+  },
+  {
+    id: 'basic-ip-addressing-082',
+    level: 'basic',
+    topic: 'ip-addressing',
+    question: `Sự khác biệt chính giữa Static IP (IP tĩnh) và Dynamic IP (IP động) là gì?`,
+    options: {
+      A: `Static IP được cấu hình thủ công và không đổi, còn Dynamic IP được máy chủ tự động cấp phát và có thể thay đổi`,
+      B: `Static IP dùng cho Internet, Dynamic IP chỉ dùng cho mạng LAN`,
+      C: `Static IP luôn sử dụng IPv6, trong khi Dynamic IP sử dụng IPv4`,
+      D: `Static IP không thể bị tấn công, còn Dynamic IP rất dễ bị hack`
+    },
+    answer: 'A',
+    explanation: `IP tĩnh do quản trị viên thiết lập thủ công và cố định, thường dùng cho các máy chủ dịch vụ (Web, Mail, Printer). IP động được cấp phát thông qua DHCP server, tiện lợi cho người dùng thông thường và có thể thay đổi sau một thời gian (Lease time).`
+  },
+  {
+    id: 'basic-ip-addressing-083',
+    level: 'basic',
+    topic: 'ip-addressing',
+    question: `Dải địa chỉ IP từ 224.0.0.0 đến 239.255.255.255 trong IPv4 (Lớp D) được sử dụng cho mục đích gì?`,
+    options: {
+      A: `Truyền thông dạng Unicast (1-nhắn-1)`,
+      B: `Truyền thông dạng Multicast (1-nhắn-nhiều)`,
+      C: `Phát sóng diện rộng Broadcast (1-nhắn-tất cả)`,
+      D: `Kiểm tra vòng lặp Loopback`
+    },
+    answer: 'B',
+    explanation: `Lớp D (Class D) không được gán cho từng máy chủ riêng biệt mà được dành riêng cho các luồng Multicast, như truyền hình qua mạng (IPTV) hay các giao thức định tuyến (OSPF, RIPv2), cho phép gửi dữ liệu tới một nhóm thiết bị nhận cụ thể.`
+  },
+  {
+    id: 'basic-ip-addressing-084',
+    level: 'basic',
+    topic: 'ip-addressing',
+    question: `Vai trò của Default Gateway (Cổng mặc định) trong cấu hình IP của một máy tính là gì?`,
+    options: {
+      A: `Đóng vai trò là phần mềm chống virus bảo vệ máy tính`,
+      B: `Chuyển đổi tên miền thành địa chỉ IP`,
+      C: `Là địa chỉ IP của Router giúp máy tính gửi gói tin ra bên ngoài mạng LAN nội bộ`,
+      D: `Cung cấp nguồn điện cho card mạng hoạt động`
+    },
+    answer: 'C',
+    explanation: `Default Gateway là điểm thoát (thường là cổng của Router kết nối với LAN) mà máy tính sẽ gửi các gói tin tới khi địa chỉ đích không nằm trong cùng mạng cục bộ (ví dụ khi truy cập Internet). Nếu thiếu Default Gateway, máy tính chỉ kết nối được trong mạng LAN.`
+  },
+  {
+    id: 'basic-protocols-basic-085',
+    level: 'basic',
+    topic: 'protocols-basic',
+    question: `Giao thức ARP (Address Resolution Protocol) giải quyết bài toán nào trong mạng máy tính?`,
+    options: {
+      A: `Tìm địa chỉ MAC của một thiết bị khi chỉ biết địa chỉ IP của nó`,
+      B: `Cấp phát địa chỉ IP động cho máy khách`,
+      C: `Kiểm tra xem một máy tính có đang trực tuyến hay không`,
+      D: `Mã hóa dữ liệu truyền tải trên web`
+    },
+    answer: 'A',
+    explanation: `ARP hoạt động bằng cách phát tín hiệu broadcast vào mạng LAN hỏi "Ai có IP này?", thiết bị có IP tương ứng sẽ trả lời bằng địa chỉ MAC của nó. Việc này rất cần thiết để thiết bị đóng gói Frame ở tầng 2 trước khi gửi đi.`
+  },
+  {
+    id: 'basic-protocols-basic-086',
+    level: 'basic',
+    topic: 'protocols-basic',
+    question: `Giao thức SNMP (Simple Network Management Protocol) được sử dụng chủ yếu để làm gì?`,
+    options: {
+      A: `Tự động thiết lập kết nối Wi-Fi an toàn`,
+      B: `Giám sát, quản lý cấu hình và trạng thái của các thiết bị mạng như Router, Switch`,
+      C: `Chia sẻ tệp tin giữa các máy tính Windows`,
+      D: `Gửi email tốc độ cao`
+    },
+    answer: 'B',
+    explanation: `SNMP là giao thức tiêu chuẩn để quản lý mạng. Nó cho phép các phần mềm giám sát (NMS) thu thập dữ liệu về hiệu suất, trạng thái lỗi từ các thiết bị mạng (Router, Switch, Server) thông qua các Agent cài đặt trên thiết bị đó.`,
+    tip: `M là Management, giao thức dùng để quản lý thiết bị.`
+  },
+  {
+    id: 'basic-protocols-basic-087',
+    level: 'basic',
+    topic: 'protocols-basic',
+    question: `Giao thức NTP (Network Time Protocol) có nhiệm vụ gì trong hệ thống mạng?`,
+    options: {
+      A: `Chống tấn công từ chối dịch vụ (DDoS)`,
+      B: `Định tuyến dữ liệu theo thời gian thực (Real-time)`,
+      C: `Đồng bộ hóa đồng hồ thời gian giữa các thiết bị trên mạng`,
+      D: `Phát hiện cáp mạng bị đứt`
+    },
+    answer: 'C',
+    explanation: `NTP duy trì sự chính xác về thời gian trên các thiết bị mạng. Điều này cực kỳ quan trọng cho việc ghi nhận log sự kiện, các giao dịch tài chính, hoặc các giao thức xác thực cần kiểm tra thời gian tồn tại của mã thông báo (token).`
+  },
+  {
+    id: 'basic-protocols-basic-088',
+    level: 'basic',
+    topic: 'protocols-basic',
+    question: `Điểm khác biệt chính giữa hai giao thức nhận email POP3 và IMAP là gì?`,
+    options: {
+      A: `POP3 là giao thức mã hóa, còn IMAP thì không mã hóa văn bản`,
+      B: `POP3 hỗ trợ gửi mail, còn IMAP dùng để nhận mail`,
+      C: `POP3 hoạt động qua cổng 80, IMAP qua cổng 443`,
+      D: `POP3 thường tải email về và xóa trên server, còn IMAP đồng bộ email giữa server và nhiều thiết bị`
+    },
+    answer: 'D',
+    explanation: `POP3 (Post Office Protocol v3) thiết kế đơn giản: tải mail xuống máy cục bộ và thường xóa bản gốc. IMAP (Internet Message Access Protocol) giữ email trên server và đồng bộ trạng thái đọc/xóa lên tất cả các thiết bị đăng nhập, phù hợp cho người dùng đa thiết bị.`
+  },
+  {
+    id: 'basic-topology-089',
+    level: 'basic',
+    topic: 'topology',
+    question: `Đặc điểm của kết nối theo dạng Point-to-Point topology là gì?`,
+    options: {
+      A: `Một thiết bị trung tâm quản lý tất cả các thiết bị khác`,
+      B: `Một đường truyền chuyên dụng nối trực tiếp hai thiết bị duy nhất với nhau`,
+      C: `Tất cả thiết bị kết nối vào một trục cáp chung duy nhất`,
+      D: `Thiết bị cuối gửi dữ liệu quay vòng liên tục cho đến khi gặp đích`
+    },
+    answer: 'B',
+    explanation: `Point-to-Point là cấu trúc đơn giản nhất, thường thấy trong các liên kết diện rộng (WAN) hoặc kết nối giữa 2 Router. Nó cung cấp toàn bộ băng thông của đường truyền cho giao tiếp giữa đúng hai thiết bị (node) đó.`,
+    tip: `Point-to-Point là điểm-nối-điểm, kết nối trực tiếp 1-1.`
+  },
+  {
+    id: 'basic-topology-090',
+    level: 'basic',
+    topic: 'topology',
+    question: `Khác biệt cơ bản giữa cấu trúc Partial Mesh và Full Mesh là gì?`,
+    options: {
+      A: `Partial Mesh chỉ dùng cáp quang, Full Mesh dùng cáp đồng`,
+      B: `Partial Mesh nhanh hơn Full Mesh do ít dây cáp hơn`,
+      C: `Trong Partial Mesh, không phải tất cả mọi thiết bị đều có kết nối trực tiếp với nhau như Full Mesh`,
+      D: `Full Mesh không có khả năng chịu lỗi, Partial Mesh chịu lỗi tốt hơn`
+    },
+    answer: 'C',
+    explanation: `Full Mesh là mô hình mỗi thiết bị kết nối với TẤT CẢ thiết bị còn lại, độ dự phòng tuyệt đối nhưng cực kì tốn kém. Partial Mesh chỉ thiết lập kết nối trực tiếp giữa các thiết bị trọng yếu, tiết kiệm chi phí hơn nhưng vẫn giữ được mức độ dự phòng cao.`
+  },
+  {
+    id: 'basic-topology-091',
+    level: 'basic',
+    topic: 'topology',
+    question: `Mô hình Star Topology (Hình sao) có nhược điểm lớn nhất là gì?`,
+    options: {
+      A: `Khó khăn trong việc mở rộng mạng hoặc thêm máy mới`,
+      B: `Xung đột dữ liệu xảy ra thường xuyên do chia sẻ cáp dùng chung`,
+      C: `Chỉ hỗ trợ tối đa 10 máy tính`,
+      D: `Sự cố ở thiết bị trung tâm (Hub/Switch) sẽ làm sập toàn bộ hệ thống mạng`
+    },
+    answer: 'D',
+    explanation: `Trong Star Topology, mọi luồng dữ liệu đều phải đi qua Hub hoặc Switch trung tâm. Mặc dù dễ quản lý và dễ khắc phục sự cố cáp lẻ, nhưng nếu thiết bị trung tâm này hỏng (Single point of failure), toàn bộ các thiết bị sẽ mất kết nối với nhau.`
+  },
+  {
+    id: 'basic-topology-092',
+    level: 'basic',
+    topic: 'topology',
+    question: `Công nghệ Token Ring hoạt động trên cơ chế nào để kiểm soát việc truyền dữ liệu?`,
+    options: {
+      A: `Một thẻ bài (Token) truyền vòng quanh mạng, thiết bị nào giữ Token mới được phép gửi dữ liệu`,
+      B: `CSMA/CD phát hiện xung đột ngẫu nhiên trên cáp`,
+      C: `Thiết bị trung tâm quyết định ai được phép truyền qua cơ chế Polling`,
+      D: `Gửi dữ liệu qua một tần số vô tuyến đặc biệt`
+    },
+    answer: 'A',
+    explanation: `Token Ring (do IBM phát triển) cấu hình cáp logic thành một vòng khép kín. Một gói tin nhỏ gọi là Token xoay vòng liên tục. Trạm nào muốn truyền dữ liệu phải bắt được Token rỗng, gắn dữ liệu vào. Cơ chế này loại bỏ hoàn toàn sự xung đột dữ liệu (collision).`
+  },
+  {
+    id: 'basic-lan-wan-093',
+    level: 'basic',
+    topic: 'lan-wan',
+    question: `Tiêu chuẩn IEEE 802.3 thường được biết đến với tên gọi phổ biến nào trong mạng LAN?`,
+    options: {
+      A: `Wi-Fi`,
+      B: `Bluetooth`,
+      C: `Ethernet`,
+      D: `Token Ring`
+    },
+    answer: 'C',
+    explanation: `IEEE 802.3 là chuẩn công nghiệp định nghĩa giao thức điều khiển truy cập môi trường (CSMA/CD) và các yêu cầu vật lý cho mạng Ethernet có dây. Wi-Fi là 802.11, Bluetooth là 802.15.1.`,
+    tip: `802.3 là cáp mạng (Ethernet), 802.11 là không dây (Wi-Fi).`
+  },
+  {
+    id: 'basic-lan-wan-094',
+    level: 'basic',
+    topic: 'lan-wan',
+    question: `Thuật ngữ Full-Duplex (Song công toàn phần) có nghĩa là gì trong truyền dữ liệu?`,
+    options: {
+      A: `Chỉ một bên được gửi dữ liệu trong suốt quá trình kết nối`,
+      B: `Bên A gửi thì bên B phải chờ nhận xong mới được gửi lại`,
+      C: `Dữ liệu truyền bằng cáp quang với tốc độ ánh sáng`,
+      D: `Hai bên có thể gửi và nhận dữ liệu đồng thời cùng một lúc`
+    },
+    answer: 'D',
+    explanation: `Full-Duplex cho phép truyền và nhận tín hiệu song song (như gọi điện thoại). Half-Duplex chỉ cho phép luân phiên (như bộ đàm). Simplex chỉ cho truyền một chiều (như phát thanh TV, Radio).`
+  },
+  {
+    id: 'basic-lan-wan-095',
+    level: 'basic',
+    topic: 'lan-wan',
+    question: `Trong thuật ngữ mạng, ISP viết tắt của Internet Service Provider có vai trò gì?`,
+    options: {
+      A: `Là nhà cung cấp dịch vụ Internet, cấp đường truyền cho các cá nhân hoặc tổ chức`,
+      B: `Là một loại giao thức mã hóa dữ liệu trên mạng LAN`,
+      C: `Là nhà sản xuất cáp quang lớn nhất thế giới`,
+      D: `Là thiết bị bảo mật chuyên dụng trong Datacenter`
+    },
+    answer: 'A',
+    explanation: `ISP (ví dụ VNPT, Viettel, FPT) sở hữu cơ sở hạ tầng mạng lưới rộng lớn và bán quyền truy cập Internet cho người dùng cuối hoặc các doanh nghiệp. ISP đóng vai trò kết nối mạng LAN của người dùng ra mạng WAN toàn cầu.`
+  },
+  {
+    id: 'basic-lan-wan-096',
+    level: 'basic',
+    topic: 'lan-wan',
+    question: `Mạng WLAN (Wireless LAN) thường tuân theo nhóm tiêu chuẩn nào của IEEE?`,
+    options: {
+      A: `IEEE 802.1Q`,
+      B: `IEEE 802.11`,
+      C: `IEEE 802.3`,
+      D: `IEEE 802.1X`
+    },
+    answer: 'B',
+    explanation: `Nhóm tiêu chuẩn 802.11 quy định công nghệ cho mạng cục bộ không dây (Wi-Fi), định nghĩa các phương thức kết nối qua sóng radio thay vì cáp. Ví dụ 802.11n, 802.11ac, 802.11ax.`
+  },
+  {
+    id: 'basic-firewall-097',
+    level: 'basic',
+    topic: 'firewall',
+    question: `Trong kiến trúc tường lửa, vùng DMZ (Demilitarized Zone) được sử dụng để làm gì?`,
+    options: {
+      A: `Bảo vệ tuyệt đối các dữ liệu tài chính kế toán quan trọng nhất`,
+      B: `Chặn tất cả các kết nối từ cả trong và ngoài mạng`,
+      C: `Tăng tốc độ truy cập Internet cho mạng LAN`,
+      D: `Đặt các máy chủ cung cấp dịch vụ công khai (Web, Mail) để tách biệt rủi ro khỏi mạng nội bộ`
+    },
+    answer: 'D',
+    explanation: `DMZ là một vùng đệm không hoàn toàn an toàn (Untrust) nhưng cũng không phải là mạng nội bộ cần bảo vệ nghiêm ngặt (Trust). Đặt các Server public ở đây giúp dù Server bị hack, kẻ tấn công cũng không dễ xâm nhập trực tiếp vào mạng LAN nội bộ.`
+  },
+  {
+    id: 'basic-firewall-098',
+    level: 'basic',
+    topic: 'firewall',
+    question: `Điểm vượt trội chính của Next-Generation Firewall (NGFW) so với tường lửa truyền thống là gì?`,
+    options: {
+      A: `Khả năng kiểm tra sâu gói tin (DPI), nhận diện ứng dụng và tích hợp chống xâm nhập (IPS)`,
+      B: `Giá thành cực rẻ và không cần cấu hình bảo trì`,
+      C: `Chỉ tiêu thụ một nửa lượng điện năng`,
+      D: `Sử dụng chuẩn cáp quang thay vì cáp đồng`
+    },
+    answer: 'A',
+    explanation: `NGFW không chỉ lọc địa chỉ IP và Port (tầng 3 và 4) như tường lửa cũ, mà còn tiến sâu vào tầng Application (Tầng 7) để hiểu lưu lượng đó là ứng dụng gì (Facebook, YouTube), đồng thời quét virus và ngăn chặn xâm nhập (IPS) trong thời gian thực.`
+  },
+  {
+    id: 'basic-firewall-099',
+    level: 'basic',
+    topic: 'firewall',
+    question: `Tường lửa chặn các kết nối đến "Port 23". Điều này có ý nghĩa bảo mật gì?`,
+    options: {
+      A: `Ngăn chặn người dùng lướt web (HTTP)`,
+      B: `Ngăn chặn kết nối điều khiển từ xa không an toàn bằng giao thức Telnet`,
+      C: `Ngăn chặn gửi email qua SMTP`,
+      D: `Chặn việc tải file qua FTP`
+    },
+    answer: 'B',
+    explanation: `Port 23 được sử dụng bởi Telnet, một giao thức điều khiển từ xa truyền dữ liệu bằng văn bản thuần (plaintext), dễ bị đánh cắp mật khẩu. Tường lửa chặn Port 23 nhằm bắt buộc quản trị viên chuyển sang dùng SSH (Port 22) an toàn hơn.`
+  },
+  {
+    id: 'basic-firewall-100',
+    level: 'basic',
+    topic: 'firewall',
+    question: `Tại sao việc giám sát và ghi nhật ký (Logging) trên tường lửa lại cực kỳ quan trọng?`,
+    options: {
+      A: `Để thu thập thông tin thẻ tín dụng của người dùng hợp pháp`,
+      B: `Để tự động tăng băng thông cho các máy tính bị chậm`,
+      C: `Để phát hiện các mô hình tấn công, truy vết sự cố và tuân thủ các quy định bảo mật`,
+      D: `Để nén dữ liệu giúp tiết kiệm dung lượng ổ cứng`
+    },
+    answer: 'C',
+    explanation: `Log trên tường lửa cung cấp hồ sơ chi tiết về mọi kết nối (được phép và bị chặn). Quản trị viên sử dụng thông tin này để kiểm toán bảo mật, tìm hiểu nguyên nhân khi mạng bị tấn công hoặc chẩn đoán các lỗi kết nối hợp lệ vô tình bị chặn.`
   }
 ];
 
